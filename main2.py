@@ -36,7 +36,7 @@ lgs_wavefront = simulate_lgs(N, L, altitude)
 distorted_lgs_wavefront = propagate_wavefront(phase_screens, lgs_wavefront)
 
 # Set figure saving folder
-plt.rcParams['savefig.directory'] = 'figures'
+folder = "figures/"
 
 # Load and propagate planet wavefront
 planet_image_path = "jupiter.png"
@@ -71,7 +71,7 @@ for i, screen in enumerate(phase_screens):
     ax.set_title(f'Layer {i+1}')
     plt.colorbar(im, ax=ax)
 plt.tight_layout()
-plt.savefig("Phase_screen.png")
+plt.savefig(f"{folder}Phase_screen.png")
 
 # Plot distorted wavefront
 plt.figure()
@@ -80,7 +80,7 @@ plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.title('Distorted Plane Wavefront')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("Distorted_wavefront.png")
+plt.savefig(f"{folder}Distorted_wavefront.png")
 
 # Plot LGS wavefront
 plt.figure()
@@ -89,7 +89,7 @@ plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.title('LGS Wavefront')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("LGS_wavefront.png")
+plt.savefig(f"{folder}LGS_wavefront.png")
 
 # Plot distorted LGS wavefront
 plt.figure()
@@ -98,7 +98,7 @@ plt.title('Distorted LGS Wavefront')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("Distorted_LGS_wavefront.png")
+plt.savefig(f"{folder}Distorted_LGS_wavefront.png")
 
 # Plot planet wavefront
 plt.figure()
@@ -107,7 +107,7 @@ plt.title('Jupiter Wavefront')
 plt.colorbar(label='Phase (rad)')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
-plt.savefig("planet_wavefront.png")
+plt.savefig(f"{folder}planet_wavefront.png")
 
 # Plot distorted planet wavefront
 plt.figure()
@@ -116,7 +116,7 @@ plt.title('Distorted Jupiter Wavefront')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("Distorted_planet_wavefront.png")
+plt.savefig(f"{folder}Distorted_planet_wavefront.png")
 
 # Plot reconstructed wavefront
 plt.figure()
@@ -125,7 +125,7 @@ plt.title('Reconstructed Wavefront')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("reconstructed_distortion.png")
+plt.savefig(f"{folder}reconstructed_distortion.png")
 
 # Plot corrected planet wavefront
 plt.figure()
@@ -134,7 +134,7 @@ plt.title('Corrected Jupiter Wavefront')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("corrected_planet_wavefront.png")
+plt.savefig(f"{folder}corrected_planet_wavefront.png")
 
 
 
@@ -149,7 +149,7 @@ plt.title('Corrected Jupiter Wavefront')
 plt.xlabel('Distance (m)')
 plt.ylabel('Distance (m)')
 plt.colorbar(label='Phase (rad)')
-plt.savefig("spherical_wavefront.png")
+plt.savefig(f"{folder}spherical_wavefront.png")
 
 # ------------------------ Deformable Mirror Júpiter -----------------------
 reconstructed_wavefront_small = resize_grid_bilinear(reconstructed_wavefront, 50)
@@ -167,6 +167,6 @@ ax.set_xlabel('Actuator X Position (arb.)')
 ax.set_ylabel('Actuator Y Position (arb.)')
 ax.set_zlabel('Actuator Deformation (rad)')
 ax.set_title('Deformable Mirror Actuator Deformations')
-plt.savefig("actuator_deformations.png")
+plt.savefig(f"{folder}actuator_deformations.png")
 
 
