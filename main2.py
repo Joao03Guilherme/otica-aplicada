@@ -35,6 +35,9 @@ distorted_wavefront = propagate_wavefront(phase_screens, initial_wavefront)
 lgs_wavefront = simulate_lgs(N, L, altitude)
 distorted_lgs_wavefront = propagate_wavefront(phase_screens, lgs_wavefront)
 
+# Set figure saving folder
+plt.rcParams['savefig.directory'] = 'figures'
+
 # Load and propagate planet wavefront
 planet_image_path = "jupiter.png"
 planet_wavefront = load_planet_image(planet_image_path, N)
